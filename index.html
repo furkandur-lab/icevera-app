@@ -40,58 +40,75 @@ button{font-family:inherit;cursor:pointer;}
 ::-webkit-scrollbar-thumb{background:var(--line);border-radius:10px;}
 
 /* ---------- TOPBAR ---------- */
-.topbar{display:flex;align-items:center;gap:14px;padding:14px 24px;background:var(--white);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
-.topbar img{height:34px;}
-.topbar .brandline{display:flex;flex-direction:column;line-height:1.1;}
-.topbar .brandline b{font-family:Georgia,serif;font-size:18px;}
-.topbar .brandline span{font-size:11px;color:var(--ink-soft);letter-spacing:.04em;}
+.topbar{display:flex;align-items:center;gap:16px;padding:0 28px;height:62px;background:var(--white);border-bottom:2px solid var(--strawberry);position:sticky;top:0;z-index:50;box-shadow:0 2px 12px rgba(43,36,32,.06);}
+.topbar img{height:38px;}
+.topbar .divider{width:1px;height:28px;background:var(--line);}
+.topbar .brandline{display:flex;flex-direction:column;line-height:1.15;}
+.topbar .brandline b{font-family:Georgia,serif;font-size:17px;letter-spacing:.01em;}
+.topbar .brandline span{font-size:10px;color:var(--ink-soft);letter-spacing:.12em;text-transform:uppercase;}
 .topbar .spacer{flex:1;}
-.topbar .meta{font-size:12px;color:var(--ink-soft);text-align:right;}
+.topbar .meta{font-size:11.5px;color:var(--ink-soft);text-align:right;line-height:1.5;}
 
 /* ---------- LAYOUT ---------- */
-.app{display:flex;min-height:calc(100vh - 63px);}
-.nav{width:210px;flex-shrink:0;background:var(--white);border-right:1px solid var(--line);padding:18px 10px;}
-.nav button{display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:11px 14px;border:none;background:none;border-radius:10px;color:var(--ink-soft);font-size:14.5px;margin-bottom:4px;transition:.15s;}
+.app{display:flex;min-height:calc(100vh - 62px);}
+.nav{width:220px;flex-shrink:0;background:var(--white);border-right:1px solid var(--line);padding:20px 12px 20px;display:flex;flex-direction:column;gap:2px;}
+.nav-section-label{font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-soft);padding:14px 12px 4px;margin-top:4px;}
+.nav button{display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:10px 13px;border:none;background:none;border-radius:8px;color:var(--ink-soft);font-size:13.5px;margin-bottom:1px;transition:.13s;}
 .nav button:hover{background:var(--cream-2);color:var(--ink);}
-.nav button.active{background:var(--strawberry);color:#fff;font-weight:600;}
-.nav .icon{font-size:16px;width:18px;text-align:center;}
-.main{flex:1;padding:26px 30px;max-width:1280px;}
+.nav button.active{background:var(--strawberry);color:#fff;font-weight:700;box-shadow:0 2px 8px rgba(193,67,47,.25);}
+.nav .icon{font-size:15px;width:18px;text-align:center;opacity:.7;}
+.nav button.active .icon{opacity:1;}
+.main{flex:1;padding:28px 32px;max-width:1320px;}
 .view{display:none;}
 .view.active{display:block;animation:fadein .25s ease;}
 @keyframes fadein{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:none;}}
 
 /* ---------- COMMON ---------- */
-.card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);}
-.cards-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin-bottom:20px;}
-.stat{padding:18px 20px;border-radius:var(--radius);color:#fff;box-shadow:var(--shadow);}
-.stat .label{font-size:12px;opacity:.85;letter-spacing:.03em;text-transform:uppercase;}
-.stat .value{font-family:Georgia,serif;font-size:26px;margin-top:6px;}
-.stat.s1{background:linear-gradient(135deg,var(--strawberry),var(--strawberry-dark));}
-.stat.s2{background:linear-gradient(135deg,var(--leaf),#3f5836);}
-.stat.s3{background:linear-gradient(135deg,var(--orange),#b8651a);}
-.stat.s4{background:linear-gradient(135deg,var(--fig),#4a2740);}
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);}
+.card h2,.card h3{border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:14px;}
+.cards-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:22px;}
+.stat{padding:20px 22px;border-radius:var(--radius);color:#fff;box-shadow:0 4px 14px rgba(0,0,0,.12);position:relative;overflow:hidden;}
+.stat::before{content:'';position:absolute;top:-20px;right:-20px;width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,.1);}
+.stat .label{font-size:11px;opacity:.85;letter-spacing:.06em;text-transform:uppercase;font-weight:700;}
+.stat .value{font-family:Georgia,serif;font-size:28px;margin-top:8px;font-weight:600;}
+.stat.s1{background:linear-gradient(135deg,#c1432f,#9c2f1f);}
+.stat.s2{background:linear-gradient(135deg,#5c7a4f,#3f5836);}
+.stat.s3{background:linear-gradient(135deg,#e08a2c,#b8651a);}
+.stat.s4{background:linear-gradient(135deg,#6d3b5d,#4a2740);}
 
-.toolbar{display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap;}
-.toolbar input,.toolbar select{padding:9px 12px;border:1px solid var(--line);border-radius:9px;font-size:14px;background:#fff;}
+.page-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:22px;padding-bottom:16px;border-bottom:2px solid var(--line);}
+.page-header h2{margin:0;font-size:22px;}
+.page-header p{margin:4px 0 0;font-size:13px;color:var(--ink-soft);}
+.page-header-left{flex:1;}
+
+.toolbar{display:flex;gap:10px;align-items:center;margin-bottom:18px;flex-wrap:wrap;}
+.toolbar input,.toolbar select{padding:9px 13px;border:1px solid var(--line);border-radius:8px;font-size:13.5px;background:var(--cream);color:var(--ink);transition:.15s;}
+.toolbar input:focus,.toolbar select:focus{outline:none;border-color:var(--strawberry);box-shadow:0 0 0 2px rgba(193,67,47,.1);}
 .toolbar input[type=text],.toolbar input[type=search]{min-width:220px;}
-.btn{padding:9px 16px;border-radius:9px;border:1px solid var(--strawberry);background:var(--strawberry);color:#fff;font-size:14px;font-weight:600;}
-.btn:hover{background:var(--strawberry-dark);}
-.btn.outline{background:#fff;color:var(--strawberry);}
+.btn{padding:9px 18px;border-radius:8px;border:1px solid var(--strawberry);background:var(--strawberry);color:#fff;font-size:13.5px;font-weight:600;transition:.15s;letter-spacing:.01em;}
+.btn:hover{background:var(--strawberry-dark);border-color:var(--strawberry-dark);}
+.btn.outline{background:var(--white);color:var(--strawberry);}
 .btn.outline:hover{background:var(--cream-2);}
 .btn.ghost{background:none;border:none;color:var(--ink-soft);font-weight:500;}
 .btn.ghost:hover{color:var(--ink);}
-.btn.small{padding:5px 10px;font-size:12.5px;border-radius:7px;}
-.btn.danger{border-color:#a33;background:#fff;color:#a33;}
-.btn.danger:hover{background:#fdeeee;}
+.btn.small{padding:5px 11px;font-size:12px;border-radius:6px;}
+.btn.danger{border-color:#b03030;background:var(--white);color:#b03030;}
+.btn.danger:hover{background:#fdf0f0;}
 
 table{width:100%;border-collapse:collapse;font-size:13.5px;}
-thead th{text-align:left;padding:10px 12px;background:var(--cream-2);color:var(--ink-soft);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.03em;border-bottom:1px solid var(--line);}
-tbody td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:middle;}
-tbody tr:hover{background:#fffaf0;}
+thead th{text-align:left;padding:11px 14px;background:var(--cream-2);color:var(--ink-soft);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.05em;border-bottom:2px solid var(--line);}
+thead th.sortable{cursor:pointer;user-select:none;}
+thead th.sortable:hover{color:var(--ink);background:var(--line);}
+thead th .sort-arrow{margin-left:4px;opacity:.5;font-size:10px;}
+thead th.sort-asc .sort-arrow::after{content:'▲';}
+thead th.sort-desc .sort-arrow::after{content:'▼';}
+tbody td{padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:middle;}
+tbody tr:last-child td{border-bottom:none;}
+tbody tr:hover{background:var(--cream-2);}
 .right{text-align:right;}
 .center{text-align:center;}
 .muted{color:var(--ink-soft);}
-.tag{display:inline-block;padding:2px 9px;border-radius:20px;font-size:11.5px;font-weight:600;}
+.tag{display:inline-block;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:.03em;}
 .tag.musteri{background:#e7f0e3;color:var(--leaf);}
 .tag.tedarikci{background:#f2e6ef;color:var(--fig);}
 .tag.kasa{background:#e3eef0;color:var(--kasa);}
@@ -177,7 +194,38 @@ tbody tr:hover{background:#fffaf0;}
 .gider-lines table{font-size:13px;}
 .gider-lines .rm{color:#a33;border:none;background:none;font-size:16px;}
 
-/* ---------- CARİ SEKTÖR GRUPLARI ---------- */
+/* ---------- STOK BİLDİRİM BANNER ---------- */
+#stokAlertBanner{display:none;background:linear-gradient(135deg,#9c2f1f,#c1432f);color:#fff;padding:11px 20px;font-size:13.5px;font-weight:600;border-radius:10px;margin-bottom:16px;display:flex;align-items:center;gap:10px;box-shadow:0 2px 8px rgba(193,67,47,.35);}
+#stokAlertBanner .close-btn{margin-left:auto;background:rgba(255,255,255,.2);border:none;color:#fff;width:24px;height:24px;border-radius:6px;cursor:pointer;font-size:14px;}
+.stok-badge{position:absolute;top:-5px;right:-5px;background:var(--strawberry);color:#fff;border-radius:10px;font-size:10px;font-weight:800;padding:1px 6px;min-width:18px;text-align:center;}
+.nav .icon-wrap{position:relative;display:inline-block;}
+
+/* ---------- COMBO SELECT (Manuel Tür/Sektör) ---------- */
+.combo-wrap{position:relative;}
+.combo-wrap select{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:9px;font-size:14px;background:var(--cream);}
+.combo-wrap .combo-add{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:var(--cream-2);border:1px solid var(--line);border-radius:6px;font-size:11px;padding:2px 7px;cursor:pointer;color:var(--ink-soft);}
+.combo-wrap .combo-add:hover{background:var(--line);}
+.combo-custom-row{display:flex;gap:6px;margin-top:6px;display:none;}
+.combo-custom-row input{flex:1;padding:8px 10px;border:1px solid var(--strawberry);border-radius:8px;font-size:13.5px;background:var(--cream);}
+.combo-custom-row .btn{padding:7px 12px;font-size:12.5px;}
+
+/* ---------- CARİ HARİTA ---------- */
+#haritaDiv{height:420px;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);}
+.harita-popup{font-family:'Segoe UI',sans-serif;font-size:13px;min-width:180px;}
+.harita-popup b{display:block;font-size:14px;margin-bottom:4px;}
+.harita-popup .hp-tag{display:inline-block;padding:1px 8px;border-radius:10px;font-size:11px;font-weight:700;background:#e7f0e3;color:#5c7a4f;}
+.hp-row{margin-top:4px;color:#6b6157;font-size:12px;}
+.cari-lat-lng{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+
+/* ---------- TAKVİM ALARM ---------- */
+.cal-alarm-row{display:flex;align-items:center;gap:8px;margin-top:8px;}
+.cal-alarm-row label{font-size:12.5px;color:var(--ink-soft);font-weight:600;white-space:nowrap;}
+.cal-alarm-row input[type=time]{flex:1;padding:8px 10px;border:1px solid var(--line);border-radius:8px;font-size:13.5px;background:var(--cream);}
+.cal-note-item{padding:10px 12px;border:1px solid var(--line);border-radius:9px;font-size:12.5px;margin-bottom:8px;background:var(--cream-2);}
+.cal-note-item .note-head{display:flex;justify-content:space-between;align-items:flex-start;}
+.cal-note-item .note-text{font-weight:600;flex:1;}
+.cal-note-item .note-alarm{font-size:11px;color:var(--strawberry);margin-top:3px;display:flex;align-items:center;gap:4px;}
+.cal-note-item .note-del{border:none;background:none;color:var(--ink-soft);font-size:16px;cursor:pointer;padding:0 2px;}
 .sektor-group{margin-bottom:22px;}
 .sektor-head{display:flex;align-items:center;gap:10px;padding:10px 4px;cursor:pointer;user-select:none;border-bottom:2px solid var(--line);margin-bottom:14px;}
 .sektor-head .chevron{font-size:11px;color:var(--ink-soft);transition:.2s;}
@@ -216,40 +264,55 @@ tbody tr:hover{background:#fffaf0;}
   .app{flex-direction:column;}
   .nav{width:100%;display:flex;overflow-x:auto;border-right:none;border-bottom:1px solid var(--line);padding:10px;}
   .nav button{white-space:nowrap;width:auto;}
+  .nav-section-label{display:none;}
   .field-row{grid-template-columns:1fr;}
 }
+
+/* ---------- SÜRÜM NUMARASI ---------- */
+#versionTag{position:fixed;bottom:10px;right:14px;font-size:10.5px;color:var(--ink-soft);background:var(--cream-2);border:1px solid var(--line);padding:3px 9px;border-radius:20px;z-index:99;letter-spacing:.04em;pointer-events:none;}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
 
 <div class="topbar">
   <img src="https://icevera.com.tr/assets/img/logo.svg" alt="icevera" onerror="this.style.display='none'">
-  <div class="brandline"><b>icevera</b><span>CARİ &amp; STOK TAKİP</span></div>
+  <div class="divider"></div>
+  <div class="brandline"><b>icevera</b><span>Cari &amp; Stok Yönetim Sistemi</span></div>
   <div class="spacer"></div>
-  <button class="kasa-quick" onclick="openKasaDirect()">💰 Kasa Cari</button>
+  <button class="kasa-quick" onclick="openKasaDirect()">💰 Kasa</button>
+  <div class="divider"></div>
   <button class="theme-toggle" id="themeToggleBtn" onclick="toggleTheme()" title="Gece/Gündüz Modu">🌙</button>
   <div class="meta" id="todayMeta"></div>
 </div>
 
 <div class="app">
   <div class="nav">
-    <button class="nav-btn active" data-view="ozet"><span class="icon">◆</span> Özet</button>
-    <button class="nav-btn" data-view="cariler"><span class="icon">◆</span> Cariler</button>
-    <button class="nav-btn" data-view="stok"><span class="icon">◆</span> Stok</button>
-    <button class="nav-btn" data-view="hareketler"><span class="icon">◆</span> Hesap Hareketleri</button>
-    <button class="nav-btn" data-view="maliyet"><span class="icon">◆</span> Maliyet Hesabı</button>
-    <button class="nav-btn" data-view="takvim"><span class="icon">◆</span> Takvim</button>
-    <button class="nav-btn" data-view="ekstre"><span class="icon">◆</span> Ekstre / Dekont</button>
-    <button class="nav-btn" data-view="ayarlar"><span class="icon">◆</span> Ayarlar</button>
+    <div class="nav-section-label">Genel Bakış</div>
+    <button class="nav-btn active" data-view="ozet"><span class="icon">📊</span> Dashboard</button>
+    <div class="nav-section-label">Cari Yönetimi</div>
+    <button class="nav-btn" data-view="cariler"><span class="icon">👥</span> Cariler</button>
+    <button class="nav-btn" data-view="harita"><span class="icon">🗺</span> Cari Harita</button>
+    <div class="nav-section-label">Stok & Finans</div>
+    <button class="nav-btn" data-view="stok"><span class="icon-wrap">📦<span id="stokNavBadge" class="stok-badge" style="display:none;">!</span></span> Stok Takip</button>
+    <button class="nav-btn" data-view="hareketler"><span class="icon">📋</span> Hareketler</button>
+    <button class="nav-btn" data-view="maliyet"><span class="icon">🧮</span> Maliyet Analizi</button>
+    <div class="nav-section-label">Raporlar & Araçlar</div>
+    <button class="nav-btn" data-view="ekstre"><span class="icon">🖨</span> Ekstre / Dekont</button>
+    <button class="nav-btn" data-view="takvim"><span class="icon">📅</span> Takvim</button>
+    <button class="nav-btn" data-view="ayarlar"><span class="icon">⚙</span> Ayarlar</button>
   </div>
 
   <div class="main">
 
     <!-- ================= ÖZET ================= -->
     <div class="view active" id="view-ozet">
-      <h2>Genel Özet</h2>
-      <p class="muted" style="margin-bottom:18px;">Şirket cari ve stok durumunuzun anlık görünümü.</p>
+      <div class="page-header">
+        <div class="page-header-left"><h2>Dashboard</h2><p>Şirket cari ve stok durumunuzun anlık görünümü</p></div>
+        <div class="meta" style="font-size:12px;color:var(--ink-soft);" id="todayMeta2"></div>
+      </div>
       <div class="cards-row">
         <div class="stat s1"><div class="label">Toplam Alacak (Bize Borçlu)</div><div class="value" id="ozTotalReceivable">0 TL</div></div>
         <div class="stat s4"><div class="label">Toplam Borç (Onlara Borçluyuz)</div><div class="value" id="ozTotalPayable">0 TL</div></div>
@@ -276,11 +339,13 @@ tbody tr:hover{background:#fffaf0;}
 
     <!-- ================= CARİLER ================= -->
     <div class="view" id="view-cariler">
-      <h2>Cariler</h2>
-      <p class="muted" style="margin-bottom:16px;">Müşteri ve tedarikçilerinizi sektörlerine göre gruplandırılmış olarak yönetin.</p>
+      <div class="page-header">
+        <div class="page-header-left"><h2>Cariler</h2><p>Müşteri ve tedarikçilerinizi sektörlerine göre yönetin</p></div>
+        <button class="btn" onclick="openCariModal()">+ Yeni Cari</button>
+      </div>
       <div class="cards-row" id="cariOzetCards"></div>
       <div class="toolbar">
-        <input type="search" id="cariSearch" placeholder="İsim, telefon veya şehir ara...">
+        <input type="search" id="cariSearch" placeholder="🔍  İsim, telefon veya şehir ara...">
         <select id="cariFilterTip">
           <option value="">Tüm türler</option>
           <option value="musteri">Müşteri</option>
@@ -288,8 +353,15 @@ tbody tr:hover{background:#fffaf0;}
           <option value="kasa">Kasa</option>
         </select>
         <select id="cariFilterSektor"><option value="">Tüm sektörler</option></select>
-        <div class="spacer" style="flex:1"></div>
-        <button class="btn" onclick="openCariModal()">+ Yeni Cari</button>
+        <select id="cariSortKey">
+          <option value="">Sıralama: Varsayılan</option>
+          <option value="ad">İsme Göre (A→Z)</option>
+          <option value="ad-desc">İsme Göre (Z→A)</option>
+          <option value="sehir">Şehre Göre</option>
+          <option value="sektor">Sektöre Göre</option>
+          <option value="net-desc">Bakiye (Büyükten Küçüğe)</option>
+          <option value="net-asc">Bakiye (Küçükten Büyüğe)</option>
+        </select>
       </div>
       <div id="cariSektorGroups"></div>
       <div class="empty" id="cariEmpty" style="display:none;"><div class="big">🍓</div>Henüz cari kaydı yok.<br>“+ Yeni Cari” ile ilk kaydınızı oluşturun.</div>
@@ -297,12 +369,16 @@ tbody tr:hover{background:#fffaf0;}
 
     <!-- ================= STOK ================= -->
     <div class="view" id="view-stok">
-      <h2>Stok Takip</h2>
-      <p class="muted" style="margin-bottom:16px;">Dondurularak kurutulmuş meyve ürünlerinizin stok durumu.</p>
-      <div class="toolbar">
-        <input type="search" id="stokSearch" placeholder="Ürün ara...">
-        <div class="spacer" style="flex:1"></div>
+      <div class="page-header">
+        <div class="page-header-left"><h2>Stok Takip</h2><p>Ürün stoklarınızı yönetin ve kritik seviyeleri takip edin</p></div>
         <button class="btn" onclick="openStokModal()">+ Yeni Ürün</button>
+      </div>
+      <div id="stokAlertBanner" style="display:none;">
+        <span>⚠️</span><span id="stokAlertText"></span>
+        <button class="close-btn" onclick="document.getElementById('stokAlertBanner').style.display='none'">✕</button>
+      </div>
+      <div class="toolbar">
+        <input type="search" id="stokSearch" placeholder="🔍  Ürün ara...">
       </div>
       <div class="card" style="padding:0;overflow:auto;">
         <table>
@@ -315,9 +391,12 @@ tbody tr:hover{background:#fffaf0;}
 
     <!-- ================= HAREKETLER ================= -->
     <div class="view" id="view-hareketler">
-      <h2>Hesap Hareketleri</h2>
-      <p class="muted" style="margin-bottom:16px;">Satış, alış, tahsilat ve ödeme kayıtlarınız. Satış/Alış hareketlerinde ürün seçerseniz stok otomatik güncellenir.</p>
+      <div class="page-header">
+        <div class="page-header-left"><h2>Hesap Hareketleri</h2><p>Satış, alış, tahsilat ve ödeme kayıtlarınız — ürün seçiminde stok otomatik güncellenir</p></div>
+        <button class="btn" onclick="openHareketModal()">+ Yeni Hareket</button>
+      </div>
       <div class="toolbar">
+        <input type="search" id="hrkSearch" placeholder="🔍  Açıklama ara...">
         <select id="hrkFilterCari"><option value="">Tüm cariler</option></select>
         <select id="hrkFilterTip">
           <option value="">Tüm türler</option>
@@ -328,8 +407,6 @@ tbody tr:hover{background:#fffaf0;}
           <option value="manuel_borc">Manuel Borç</option>
           <option value="manuel_alacak">Manuel Alacak</option>
         </select>
-        <div class="spacer" style="flex:1"></div>
-        <button class="btn" onclick="openHareketModal()">+ Yeni Hareket</button>
       </div>
       <div class="card" style="padding:0;overflow:auto;">
         <table>
@@ -338,6 +415,26 @@ tbody tr:hover{background:#fffaf0;}
         </table>
         <div class="empty" id="hareketEmpty" style="display:none;"><div class="big">🧾</div>Henüz hareket kaydı yok.</div>
       </div>
+    </div>
+
+    <!-- ================= CARİ HARİTA ================= -->
+    <div class="view" id="view-harita">
+      <h2>Cari Harita</h2>
+      <p class="muted" style="margin-bottom:16px;">Kayıtlı müşteri ve tedarikçi konumlarını harita üzerinde görün. Cari eklerken enlem/boylam girerek konumu belirleyin.</p>
+      <div class="toolbar" style="margin-bottom:14px;">
+        <select id="haritaFilterTip">
+          <option value="">Tüm cariler</option>
+          <option value="musteri">Müşteriler</option>
+          <option value="tedarikci">Tedarikçiler</option>
+          <option value="kasa">Kasa</option>
+        </select>
+        <select id="haritaFilterSektor"><option value="">Tüm sektörler</option></select>
+        <button class="btn outline" onclick="renderHarita()">🔄 Yenile</button>
+        <div class="spacer" style="flex:1"></div>
+        <span class="muted" style="font-size:12.5px;" id="haritaKonumSayisi"></span>
+      </div>
+      <div id="haritaDiv"></div>
+      <p class="muted" style="font-size:12px;margin-top:8px;">💡 Konumu olmayan cariler haritada görünmez. Cari düzenle ekranından <b>Enlem / Boylam</b> girerek konum ekleyebilirsiniz.</p>
     </div>
 
     <!-- ================= TAKVİM ================= -->
@@ -358,8 +455,12 @@ tbody tr:hover{background:#fffaf0;}
         </div>
         <div class="card cal-notes-panel">
           <h3 id="calSelectedLabel">Tarih seçin</h3>
-          <textarea id="calNoteInput" placeholder="Bu gün için not ekleyin (örn: Ahmet Bey'den tahsilat)..."></textarea>
-          <button class="btn small" style="margin-top:8px;" onclick="calSaveNote()">+ Not Ekle</button>
+          <textarea id="calNoteInput" placeholder="Not yazın (örn: Ahmet Bey'den tahsilat, sipariş hazırla...)"></textarea>
+          <div class="cal-alarm-row">
+            <label>⏰ Alarm:</label>
+            <input type="time" id="calAlarmTime">
+          </div>
+          <button class="btn small" style="margin-top:8px;width:100%;" onclick="calSaveNote()">+ Not & Alarm Ekle</button>
           <div id="calNotesList" style="margin-top:14px;"></div>
         </div>
       </div>
@@ -450,27 +551,47 @@ tbody tr:hover{background:#fffaf0;}
 
 <!-- ===== CARİ MODAL ===== -->
 <div class="overlay" id="cariOverlay">
-  <div class="modal">
+  <div class="modal" style="max-width:620px;">
     <button class="closeX" onclick="closeModal('cariOverlay')">×</button>
     <h3 id="cariModalTitle">Yeni Cari</h3>
     <input type="hidden" id="cariId">
     <div class="field"><label>Ad / Unvan *</label><input type="text" id="cariAd"></div>
     <div class="field-row">
       <div class="field"><label>Tür</label>
-        <select id="cariTip"><option value="musteri">Müşteri</option><option value="tedarikci">Tedarikçi</option><option value="kasa">Kasa</option></select>
+        <div class="combo-wrap">
+          <select id="cariTip">
+            <option value="musteri">Müşteri</option>
+            <option value="tedarikci">Tedarikçi</option>
+            <option value="kasa">Kasa</option>
+          </select>
+          <button class="combo-add" onclick="showComboCustom('tur')" title="Yeni tür ekle">+ Ekle</button>
+        </div>
+        <div class="combo-custom-row" id="tur-custom-row">
+          <input type="text" id="tur-custom-input" placeholder="Yeni tür adı...">
+          <button class="btn small" onclick="addComboOption('cariTip','tur')">Ekle</button>
+          <button class="btn small ghost" onclick="hideComboCustom('tur')">İptal</button>
+        </div>
       </div>
       <div class="field"><label>Sektör</label>
-        <select id="cariSektor">
-          <option value="Pastane / Fırın">Pastane / Fırın</option>
-          <option value="Market / Bakkal">Market / Bakkal</option>
-          <option value="Manav / Aktar">Manav / Aktar</option>
-          <option value="Kafe / Restoran">Kafe / Restoran</option>
-          <option value="Otel / Konaklama">Otel / Konaklama</option>
-          <option value="Toptan / İhracat">Toptan / İhracat</option>
-          <option value="Online Satış">Online Satış</option>
-          <option value="Tedarikçi / Üretici">Tedarikçi / Üretici</option>
-          <option value="Diğer">Diğer</option>
-        </select>
+        <div class="combo-wrap">
+          <select id="cariSektor">
+            <option value="Pastane / Fırın">Pastane / Fırın</option>
+            <option value="Market / Bakkal">Market / Bakkal</option>
+            <option value="Manav / Aktar">Manav / Aktar</option>
+            <option value="Kafe / Restoran">Kafe / Restoran</option>
+            <option value="Otel / Konaklama">Otel / Konaklama</option>
+            <option value="Toptan / İhracat">Toptan / İhracat</option>
+            <option value="Online Satış">Online Satış</option>
+            <option value="Tedarikçi / Üretici">Tedarikçi / Üretici</option>
+            <option value="Diğer">Diğer</option>
+          </select>
+          <button class="combo-add" onclick="showComboCustom('sektor')" title="Yeni sektör ekle">+ Ekle</button>
+        </div>
+        <div class="combo-custom-row" id="sektor-custom-row">
+          <input type="text" id="sektor-custom-input" placeholder="Yeni sektör adı...">
+          <button class="btn small" onclick="addComboOption('cariSektor','sektor')">Ekle</button>
+          <button class="btn small ghost" onclick="hideComboCustom('sektor')">İptal</button>
+        </div>
       </div>
     </div>
     <div class="field-row">
@@ -479,14 +600,18 @@ tbody tr:hover{background:#fffaf0;}
     </div>
     <div class="field-row">
       <div class="field"><label>Vergi No / TC</label><input type="text" id="cariVergi"></div>
-      <div class="field"><label>Şehir</label><input type="text" id="cariSehir"></div>
+      <div class="field"><label>Şehir / İlçe</label><input type="text" id="cariSehir"></div>
     </div>
+    <div class="field"><label>Adres (Haritada görünür)</label><input type="text" id="cariAdres" placeholder="Mahalle, Sokak, No..."></div>
+    <div class="field-row cari-lat-lng">
+      <div class="field"><label>📍 Enlem (Latitude)</label><input type="number" id="cariLat" step="0.000001" placeholder="Örn: 37.8913"></div>
+      <div class="field"><label>📍 Boylam (Longitude)</label><input type="number" id="cariLng" step="0.000001" placeholder="Örn: 32.4920"></div>
+    </div>
+    <p class="muted" style="font-size:11.5px;margin:-4px 0 10px;">💡 Google Maps'te firmayı bulup sağ tıklayın → koordinatları kopyalayın</p>
     <div class="field-row">
       <div class="field"><label>Açılış Bakiyesi (TL)</label><input type="number" id="cariAcilis" value="0" step="0.01"></div>
-      <div></div>
+      <div class="field"><label>Not</label><input type="text" id="cariNot"></div>
     </div>
-    <div class="field"><label>Adres</label><textarea id="cariAdres"></textarea></div>
-    <div class="field"><label>Not</label><textarea id="cariNot"></textarea></div>
     <div class="modal-actions">
       <button class="btn ghost" onclick="closeModal('cariOverlay')">Vazgeç</button>
       <button class="btn" onclick="saveCari()">Kaydet</button>
@@ -647,7 +772,8 @@ document.querySelectorAll('.nav-btn').forEach(b=>{
     document.getElementById('view-'+b.dataset.view).classList.add('active');
     if(b.dataset.view==='ozet') renderOzet();
     if(b.dataset.view==='cariler') renderCariler();
-    if(b.dataset.view==='stok') renderStok();
+    if(b.dataset.view==='stok'){ renderStok(); checkStokAlerts(); }
+    if(b.dataset.view==='harita') renderHarita();
     if(b.dataset.view==='hareketler') renderHareketler();
     if(b.dataset.view==='maliyet') renderMaliyet();
     if(b.dataset.view==='takvim') renderCalendar();
@@ -727,12 +853,21 @@ function renderCariler(){
   const q = (document.getElementById('cariSearch').value||'').toLowerCase();
   const filterTip = document.getElementById('cariFilterTip').value;
   const filterSektor = document.getElementById('cariFilterSektor').value;
+  const sortKey = (document.getElementById('cariSortKey')||{}).value||'';
   let list = DB.cariler.filter(c=>{
     const matchQ = !q || (c.ad+c.telefon+(c.sehir||'')).toLowerCase().includes(q);
     const matchTip = !filterTip || c.tip===filterTip;
     const matchSektor = !filterSektor || (c.sektor||'Diğer')===filterSektor;
     return matchQ && matchTip && matchSektor;
   });
+
+  // Sıralama
+  if(sortKey==='ad') list.sort((a,b)=>a.ad.localeCompare(b.ad,'tr'));
+  else if(sortKey==='ad-desc') list.sort((a,b)=>b.ad.localeCompare(a.ad,'tr'));
+  else if(sortKey==='sehir') list.sort((a,b)=>(a.sehir||'').localeCompare(b.sehir||'','tr'));
+  else if(sortKey==='sektor') list.sort((a,b)=>(a.sektor||'Diğer').localeCompare(b.sektor||'Diğer','tr'));
+  else if(sortKey==='net-desc') list.sort((a,b)=>cariBorcAlacakDetay(b.id).net - cariBorcAlacakDetay(a.id).net);
+  else if(sortKey==='net-asc') list.sort((a,b)=>cariBorcAlacakDetay(a.id).net - cariBorcAlacakDetay(b.id).net);
 
   document.getElementById('cariEmpty').style.display = DB.cariler.length? 'none':'block';
 
@@ -746,7 +881,42 @@ function renderCariler(){
     <div class="stat s3"><div class="label">Sektör Sayısı</div><div class="value">${new Set(DB.cariler.map(c=>c.sektor||'Diğer')).size}</div></div>
   `;
 
-  // sektöre göre grupla
+  // Sıralama aktifse düz grid, değilse sektör grupları
+  const sektoreGoreCariKarti = (c) => {
+    const d = cariBorcAlacakDetay(c.id);
+    const netClass = d.net>0?'pos-bg':(d.net<0?'neg-bg':'zero-bg');
+    const netLabel = d.net>0 ? 'Bize Borçlu' : (d.net<0 ? 'Bizden Alacaklı' : 'Bakiye Sıfır');
+    return `<div class="cari-card">
+      <div class="cc-top">
+        <div>
+          <div class="cc-name">${esc(c.ad)}</div>
+          <div class="cc-meta">${esc(c.sektor||'Diğer')} ${c.sehir?' · '+esc(c.sehir):''}</div>
+          <div class="cc-meta">${esc(c.telefon)||'Telefon yok'}</div>
+        </div>
+        <span class="tag ${cariTipClass(c.tip)}">${cariTipLabel(c.tip)}</span>
+      </div>
+      <div class="cc-balances">
+        <div class="cc-bal-box"><div class="lbl">Alacak (Bize)</div><div class="val" style="color:#1d7a3a;">${fmt(d.toplamBorc)}</div></div>
+        <div class="cc-bal-box"><div class="lbl">Borç (Bizden)</div><div class="val" style="color:var(--strawberry-dark);">${fmt(d.toplamAlacak)}</div></div>
+      </div>
+      <div class="cc-net ${netClass}">${fmt(Math.abs(d.net))} <span style="font-size:11px;font-weight:600;display:block;margin-top:2px;">${netLabel}</span></div>
+      <div class="cc-actions">
+        <button class="btn small outline" onclick="goEkstreFor('${c.id}')">Ekstre</button>
+        <button class="btn small outline" onclick="openCariModal('${c.id}')">Düzenle</button>
+        <button class="btn small danger" onclick="deleteCari('${c.id}')">Sil</button>
+      </div>
+    </div>`;
+  };
+
+  if(sortKey){
+    // Sıralama aktif — sektör grupları olmadan düz kart grid
+    document.getElementById('cariSektorGroups').innerHTML = list.length
+      ? `<div class="sektor-cariler" style="display:grid;">${list.map(sektoreGoreCariKarti).join('')}</div>`
+      : `<div class="empty"><div class="big">🔍</div>Arama kriterlerinize uygun cari bulunamadı.</div>`;
+    return;
+  }
+
+  // Sıralama yok — sektöre göre grupla
   const groups = {};
   list.forEach(c=>{
     const s = c.sektor || 'Diğer';
@@ -766,27 +936,7 @@ function renderCariler(){
     const cardsHtml = cariler.map(c=>{
       const d = cariBorcAlacakDetay(c.id);
       grupNet += d.net;
-      const netClass = d.net>0?'pos-bg':(d.net<0?'neg-bg':'zero-bg');
-      const netLabel = d.net>0 ? 'Bize Borçlu' : (d.net<0 ? 'Bizden Alacaklı' : 'Bakiye Sıfır');
-      return `<div class="cari-card">
-        <div class="cc-top">
-          <div>
-            <div class="cc-name">${esc(c.ad)}</div>
-            <div class="cc-meta">${esc(c.telefon)||'Telefon yok'}${c.sehir?' · '+esc(c.sehir):''}</div>
-          </div>
-          <span class="tag ${cariTipClass(c.tip)}">${cariTipLabel(c.tip)}</span>
-        </div>
-        <div class="cc-balances">
-          <div class="cc-bal-box"><div class="lbl">Alacak (Bize)</div><div class="val" style="color:#1d7a3a;">${fmt(d.toplamBorc)}</div></div>
-          <div class="cc-bal-box"><div class="lbl">Borç (Bizden)</div><div class="val" style="color:var(--strawberry-dark);">${fmt(d.toplamAlacak)}</div></div>
-        </div>
-        <div class="cc-net ${netClass}">${fmt(Math.abs(d.net))} <span style="font-size:11px;font-weight:600;display:block;margin-top:2px;">${netLabel}</span></div>
-        <div class="cc-actions">
-          <button class="btn small outline" onclick="goEkstreFor('${c.id}')">Ekstre</button>
-          <button class="btn small outline" onclick="openCariModal('${c.id}')">Düzenle</button>
-          <button class="btn small danger" onclick="deleteCari('${c.id}')">Sil</button>
-        </div>
-      </div>`;
+      return sektoreGoreCariKarti(c);
     }).join('');
     const collapsed = cariCollapsedSektorler[sektor] ? 'collapsed' : '';
     const netClassHead = grupNet>0?'pos':(grupNet<0?'neg':'');
@@ -808,35 +958,9 @@ function toggleSektorGroup(sektor){
 document.getElementById('cariSearch').addEventListener('input',renderCariler);
 document.getElementById('cariFilterTip').addEventListener('change',renderCariler);
 document.getElementById('cariFilterSektor').addEventListener('change',renderCariler);
+document.getElementById('cariSortKey').addEventListener('change',renderCariler);
 
-function openCariModal(id){
-  document.getElementById('cariModalTitle').textContent = id? 'Cari Düzenle' : 'Yeni Cari';
-  document.getElementById('cariId').value = id||'';
-  if(id){
-    const c = DB.cariler.find(x=>x.id===id);
-    cariAd.value=c.ad; cariTip.value=c.tip; cariSektor.value=c.sektor||'Diğer'; cariTelefon.value=c.telefon||''; cariEmail.value=c.email||'';
-    cariVergi.value=c.vergi||''; cariSehir.value=c.sehir||''; cariAdres.value=c.adres||''; cariNot.value=c.not||'';
-    cariAcilis.value=c.acilis||0;
-  } else {
-    ['cariAd','cariTelefon','cariEmail','cariVergi','cariSehir','cariAdres','cariNot'].forEach(i=>document.getElementById(i).value='');
-    cariTip.value='musteri'; cariSektor.value='Pastane / Fırın'; cariAcilis.value=0;
-  }
-  document.getElementById('cariOverlay').classList.add('show');
-}
-function saveCari(){
-  const ad = cariAd.value.trim();
-  if(!ad){ alert('Lütfen cari adı girin.'); return; }
-  const id = cariId.value;
-  const obj = {
-    id: id || uid(),
-    ad, tip: cariTip.value, sektor: cariSektor.value, telefon: cariTelefon.value.trim(), email: cariEmail.value.trim(),
-    vergi: cariVergi.value.trim(), sehir: cariSehir.value.trim(), adres: cariAdres.value.trim(),
-    not: cariNot.value.trim(), acilis: Number(cariAcilis.value)||0
-  };
-  if(id){ const idx=DB.cariler.findIndex(c=>c.id===id); DB.cariler[idx]=obj; }
-  else DB.cariler.push(obj);
-  saveDB(); closeModal('cariOverlay'); renderCariler(); refreshCariSelects();
-}
+/* openCariModal ve saveCari: yukarıda yeni versiyonları tanımlandı */
 function deleteCari(id){
   if(!confirm('Bu cariyi ve bağlı hareket geçmişini silmek istediğinize emin misiniz?')) return;
   DB.cariler = DB.cariler.filter(c=>c.id!==id);
@@ -895,7 +1019,7 @@ function saveStok(){
   };
   if(id){ const idx=DB.stok.findIndex(s=>s.id===id); DB.stok[idx]=obj; }
   else DB.stok.push(obj);
-  saveDB(); closeModal('stokOverlay'); renderStok(); refreshStokSelectsInLines();
+  saveDB(); closeModal('stokOverlay'); renderStok(); refreshStokSelectsInLines(); checkStokAlerts();
 }
 function deleteStok(id){
   if(!confirm('Bu ürünü silmek istediğinize emin misiniz?')) return;
@@ -1023,7 +1147,7 @@ function saveHareket(){
   }
   saveDB();
   closeModal('hareketOverlay');
-  renderHareketler(); renderStok(); renderOzet();
+  renderHareketler(); renderStok(); renderOzet(); checkStokAlerts();
 }
 function deleteHareket(id){
   if(!confirm('Bu hareketi silmek istediğinize emin misiniz? (Stok geri alınmaz, manuel düzeltmeniz gerekebilir)')) return;
@@ -1035,7 +1159,8 @@ function renderHareketler(){
   refreshCariSelects();
   const fc = document.getElementById('hrkFilterCari').value;
   const ft = document.getElementById('hrkFilterTip').value;
-  let list = DB.hareketler.filter(h=> (!fc || h.cariId===fc) && (!ft || h.tip===ft));
+  const qs = (document.getElementById('hrkSearch')||{value:''}).value.toLowerCase();
+  let list = DB.hareketler.filter(h=> (!fc || h.cariId===fc) && (!ft || h.tip===ft) && (!qs || (h.aciklama||'').toLowerCase().includes(qs)));
   list = list.slice().sort((a,b)=>b.tarih.localeCompare(a.tarih));
   document.getElementById('hareketEmpty').style.display = DB.hareketler.length? 'none':'block';
   document.getElementById('hareketTable').innerHTML = list.map(h=>{
@@ -1053,6 +1178,7 @@ function renderHareketler(){
 }
 document.getElementById('hrkFilterCari').addEventListener('change',renderHareketler);
 document.getElementById('hrkFilterTip').addEventListener('change',renderHareketler);
+document.getElementById('hrkSearch').addEventListener('input',renderHareketler);
 
 /* ================= EKSTRE / DEKONT ================= */
 function renderEkstreSetup(){
@@ -1273,32 +1399,7 @@ function calSelectDay(key){
   document.getElementById('calNoteInput').value='';
   renderCalendar();
 }
-function calSaveNote(){
-  if(!calSelectedKey){ alert('Lütfen önce takvimden bir gün seçin.'); return; }
-  const val = document.getElementById('calNoteInput').value.trim();
-  if(!val) return;
-  if(!DB.notes) DB.notes = {};
-  if(!DB.notes[calSelectedKey]) DB.notes[calSelectedKey] = [];
-  DB.notes[calSelectedKey].push({ text: val, ts: Date.now() });
-  saveDB();
-  document.getElementById('calNoteInput').value='';
-  renderCalendar();
-  renderCalNotesList();
-}
-function calDeleteNote(key, idx){
-  if(!DB.notes[key]) return;
-  DB.notes[key].splice(idx,1);
-  if(DB.notes[key].length===0) delete DB.notes[key];
-  saveDB();
-  renderCalendar();
-  renderCalNotesList();
-}
-function renderCalNotesList(){
-  const list = (DB.notes && DB.notes[calSelectedKey]) || [];
-  document.getElementById('calNotesList').innerHTML = list.length ? list.map((n,i)=>`
-    <div class="cal-note-item"><span>${esc(n.text)}</span><button onclick="calDeleteNote('${calSelectedKey}',${i})">✕</button></div>
-  `).join('') : '<p class="muted" style="font-size:12.5px;">Bu gün için not yok.</p>';
-}
+/* calSaveNote, calDeleteNote, renderCalNotesList: yukarıda alarm destekli versiyonları tanımlandı */
 
 /* ================= MALİYET HESABI ================= */
 if(!DB.maliyetler) DB.maliyetler = [];
@@ -1473,10 +1574,289 @@ function renderMaliyetCharts(list){
   });
 }
 
+/* ================= 1. STOK KRİTİK BİLDİRİMİ ================= */
+function checkStokAlerts(){
+  const kritikler = DB.stok.filter(s=>Number(s.miktar) <= Number(s.kritik));
+  const badge = document.getElementById('stokNavBadge');
+  const banner = document.getElementById('stokAlertBanner');
+  const text = document.getElementById('stokAlertText');
+  if(!badge||!banner) return;
+  if(kritikler.length===0){
+    badge.style.display='none'; banner.style.display='none'; return;
+  }
+  badge.style.display='inline-block';
+  badge.textContent = kritikler.length;
+  banner.style.display='flex';
+  text.textContent = `⚠️ ${kritikler.length} ürün kritik stok seviyesinin altında: ${kritikler.map(s=>s.ad+' ('+Number(s.miktar).toLocaleString('tr-TR')+' '+s.birim+')').join(' · ')}`;
+  // Tarayıcı bildirimi (ilk kez ve izin verilmişse)
+  const lastNotifKey = 'icevera_stok_notif_'+kritikler.map(s=>s.id).sort().join(',');
+  if(Notification && Notification.permission==='granted' && localStorage.getItem('_lastStokNotif')!==lastNotifKey){
+    localStorage.setItem('_lastStokNotif', lastNotifKey);
+    new Notification('📦 icevera — Kritik Stok', {
+      body: kritikler.map(s=>`${s.ad}: ${Number(s.miktar)} ${s.birim} (kritik: ${s.kritik})`).join('\n'),
+      icon:'https://icevera.com.tr/assets/img/logo.svg'
+    });
+  }
+  if(Notification && Notification.permission==='default'){
+    Notification.requestPermission();
+  }
+}
+
+/* ================= 2. COMBO-BOX (MANUEL TÜR/SEKTÖR) ================= */
+// Özel seçenekler localStorage'da saklansın
+function _getCustomOptions(type){ try{ return JSON.parse(localStorage.getItem('icevera_combo_'+type)||'[]'); }catch(e){return[];} }
+function _saveCustomOptions(type, opts){ localStorage.setItem('icevera_combo_'+type, JSON.stringify(opts)); }
+
+function showComboCustom(type){
+  document.getElementById(type+'-custom-row').style.display='flex';
+  document.getElementById(type+'-custom-input').focus();
+}
+function hideComboCustom(type){
+  document.getElementById(type+'-custom-row').style.display='none';
+  document.getElementById(type+'-custom-input').value='';
+}
+function addComboOption(selectId, type){
+  const val = (document.getElementById(type+'-custom-input').value||'').trim();
+  if(!val){ alert('Lütfen bir isim girin.'); return; }
+  const sel = document.getElementById(selectId);
+  // zaten var mı?
+  if([...sel.options].some(o=>o.value===val)){ sel.value=val; hideComboCustom(type); return; }
+  const opt = document.createElement('option');
+  opt.value=val; opt.textContent=val;
+  sel.appendChild(opt);
+  sel.value=val;
+  // Kalıcı sakla
+  const saved = _getCustomOptions(type);
+  if(!saved.includes(val)) saved.push(val);
+  _saveCustomOptions(type, saved);
+  hideComboCustom(type);
+}
+function loadCustomComboOptions(){
+  // Tür
+  const turSel = document.getElementById('cariTip');
+  _getCustomOptions('tur').forEach(v=>{
+    if(![...turSel.options].some(o=>o.value===v)){
+      const opt=document.createElement('option'); opt.value=v; opt.textContent=v; turSel.appendChild(opt);
+    }
+  });
+  // Sektör
+  const sekSel = document.getElementById('cariSektor');
+  _getCustomOptions('sektor').forEach(v=>{
+    if(![...sekSel.options].some(o=>o.value===v)){
+      const opt=document.createElement('option'); opt.value=v; opt.textContent=v; sekSel.appendChild(opt);
+    }
+  });
+}
+
+/* ================= 3. CARİ HARİTA (Leaflet) ================= */
+let _haritaMap = null;
+let _haritaMarkers = [];
+
+function renderHarita(){
+  // sektör filter'ı doldur
+  const sekSel = document.getElementById('haritaFilterSektor');
+  const curSek = sekSel.value;
+  const sektorler = [...new Set(DB.cariler.map(c=>c.sektor||'Diğer'))].sort((a,b)=>a.localeCompare(b,'tr'));
+  sekSel.innerHTML = '<option value="">Tüm sektörler</option>'+sektorler.map(s=>`<option value="${esc(s)}">${esc(s)}</option>`).join('');
+  if(sektorler.includes(curSek)) sekSel.value=curSek;
+
+  const filterTip = document.getElementById('haritaFilterTip').value;
+  const filterSek = sekSel.value;
+  const list = DB.cariler.filter(c=>{
+    if(filterTip && c.tip!==filterTip) return false;
+    if(filterSek && (c.sektor||'Diğer')!==filterSek) return false;
+    return c.lat && c.lng;
+  });
+  document.getElementById('haritaKonumSayisi').textContent = `${list.length} / ${DB.cariler.length} carinin konumu var`;
+
+  if(!_haritaMap){
+    _haritaMap = L.map('haritaDiv').setView([37.87, 32.49], 12);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+      attribution:'© OpenStreetMap',maxZoom:19
+    }).addTo(_haritaMap);
+  }
+  // temizle
+  _haritaMarkers.forEach(m=>_haritaMap.removeLayer(m));
+  _haritaMarkers=[];
+
+  if(!list.length){ return; }
+
+  const tipRenk = {musteri:'#5c7a4f', tedarikci:'#6d3b5d', kasa:'#1d7a8c'};
+  list.forEach(c=>{
+    const renk = tipRenk[c.tip]||'#c1432f';
+    const icon = L.divIcon({
+      className:'',
+      html:`<div style="width:30px;height:30px;background:${renk};border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.3);"></div>`,
+      iconSize:[30,30], iconAnchor:[15,30], popupAnchor:[0,-32]
+    });
+    const { toplamBorc, toplamAlacak, net } = cariBorcAlacakDetay(c.id);
+    const marker = L.marker([Number(c.lat),Number(c.lng)], {icon}).addTo(_haritaMap);
+    marker.bindPopup(`<div class="harita-popup">
+      <b>${esc(c.ad)}</b>
+      <span class="hp-tag">${esc(c.sektor||'Diğer')}</span>
+      ${c.adres?`<div class="hp-row">📍 ${esc(c.adres)}</div>`:''}
+      ${c.telefon?`<div class="hp-row">📞 ${esc(c.telefon)}</div>`:''}
+      <div class="hp-row" style="margin-top:6px;display:flex;gap:8px;">
+        <span style="color:#1d7a3a;">▲ ${fmt(toplamBorc)}</span>
+        <span style="color:#c1432f;">▼ ${fmt(toplamAlacak)}</span>
+      </div>
+      <div class="hp-row" style="font-weight:700;color:${net>=0?'#1d7a3a':'#c1432f'};">Net: ${net>=0?'+':'-'}${fmt(Math.abs(net))}</div>
+      <button onclick="openCariModal('${c.id}')" style="margin-top:8px;width:100%;padding:5px;border:1px solid #c1432f;background:#fff;color:#c1432f;border-radius:6px;cursor:pointer;font-size:12px;">Düzenle</button>
+    </div>`);
+    _haritaMarkers.push(marker);
+  });
+  if(_haritaMarkers.length>0){
+    const group = L.featureGroup(_haritaMarkers);
+    _haritaMap.fitBounds(group.getBounds().pad(0.15));
+    setTimeout(()=>_haritaMap.invalidateSize(),200);
+  }
+}
+document.getElementById('haritaFilterTip').addEventListener('change',renderHarita);
+document.getElementById('haritaFilterSektor').addEventListener('change',renderHarita);
+
+/* ================= 4. TAKVİM ALARM SİSTEMİ ================= */
+let _alarmTimers = [];
+function clearAllAlarmTimers(){ _alarmTimers.forEach(t=>clearTimeout(t)); _alarmTimers=[]; }
+
+function calSaveNote(){
+  if(!calSelectedKey){ alert('Lütfen önce takvimden bir gün seçin.'); return; }
+  const val = document.getElementById('calNoteInput').value.trim();
+  if(!val){ alert('Not alanı boş bırakılamaz.'); return; }
+  const alarm = document.getElementById('calAlarmTime').value||'';
+  if(!DB.notes) DB.notes = {};
+  if(!DB.notes[calSelectedKey]) DB.notes[calSelectedKey] = [];
+  DB.notes[calSelectedKey].push({ text: val, alarm, ts: Date.now() });
+  saveDB();
+  document.getElementById('calNoteInput').value='';
+  document.getElementById('calAlarmTime').value='';
+  renderCalendar();
+  renderCalNotesList();
+  if(alarm) scheduleAlarmForNote(calSelectedKey, val, alarm);
+}
+function scheduleAlarmForNote(dateKey, text, alarmTime){
+  const [y,m,d] = dateKey.split('-').map(Number);
+  const [hh,mm] = alarmTime.split(':').map(Number);
+  const alarmDate = new Date(y,m-1,d,hh,mm,0);
+  const now = new Date();
+  const diff = alarmDate - now;
+  if(diff <= 0){ return; } // geçmişte
+  const t = setTimeout(()=>{
+    _fireAlarm(text, alarmTime);
+  }, diff);
+  _alarmTimers.push(t);
+}
+function _fireAlarm(text, time){
+  // Ses çal (AudioContext beep)
+  try{
+    const ctx = new(window.AudioContext||window.webkitAudioContext)();
+    [0,0.3,0.6].forEach(delay=>{
+      const o=ctx.createOscillator(); const g=ctx.createGain();
+      o.connect(g); g.connect(ctx.destination);
+      o.frequency.value=880; o.type='sine';
+      g.gain.setValueAtTime(0,ctx.currentTime+delay);
+      g.gain.linearRampToValueAtTime(0.4,ctx.currentTime+delay+0.05);
+      g.gain.linearRampToValueAtTime(0,ctx.currentTime+delay+0.25);
+      o.start(ctx.currentTime+delay); o.stop(ctx.currentTime+delay+0.3);
+    });
+  }catch(e){}
+  // Tarayıcı bildirimi
+  if(Notification && Notification.permission==='granted'){
+    new Notification('⏰ icevera Takvim Alarmı', {
+      body: `${time} — ${text}`,
+      icon:'https://icevera.com.tr/assets/img/logo.svg'
+    });
+  }
+  // Ekran uyarısı
+  alert(`⏰ ALARM — ${time}\n\n${text}`);
+}
+function scheduleAllAlarms(){
+  clearAllAlarmTimers();
+  if(!DB.notes) return;
+  const today = new Date();
+  Object.entries(DB.notes).forEach(([dateKey, notes])=>{
+    const [y,m,d] = dateKey.split('-').map(Number);
+    const noteDay = new Date(y,m-1,d);
+    // Bugün ve gelecekteki alarmları planla
+    if(noteDay >= new Date(today.getFullYear(),today.getMonth(),today.getDate())){
+      notes.forEach(n=>{ if(n.alarm) scheduleAlarmForNote(dateKey, n.text, n.alarm); });
+    }
+  });
+}
+function renderCalNotesList(){
+  const list = (DB.notes && DB.notes[calSelectedKey]) || [];
+  const el = document.getElementById('calNotesList');
+  if(!list.length){ el.innerHTML='<p class="muted" style="font-size:12.5px;">Bu gün için not yok.</p>'; return; }
+  el.innerHTML = list.map((n,i)=>`
+    <div class="cal-note-item">
+      <div class="note-head">
+        <span class="note-text">${esc(n.text)}</span>
+        <button class="note-del" onclick="calDeleteNote('${calSelectedKey}',${i})">✕</button>
+      </div>
+      ${n.alarm?`<div class="note-alarm">⏰ Alarm: <b>${n.alarm}</b></div>`:''}
+    </div>
+  `).join('');
+}
+function calDeleteNote(key, idx){
+  if(!DB.notes[key]) return;
+  DB.notes[key].splice(idx,1);
+  if(DB.notes[key].length===0) delete DB.notes[key];
+  saveDB();
+  renderCalendar();
+  renderCalNotesList();
+  scheduleAllAlarms();
+}
+
+/* ================= openCariModal güncelleme (lat/lng) ================= */
+function openCariModal(id){
+  loadCustomComboOptions();
+  document.getElementById('cariModalTitle').textContent = id? 'Cari Düzenle' : 'Yeni Cari';
+  document.getElementById('cariId').value = id||'';
+  // custom satırları kapat
+  hideComboCustom('tur'); hideComboCustom('sektor');
+  if(id){
+    const c = DB.cariler.find(x=>x.id===id);
+    cariAd.value=c.ad; cariTip.value=c.tip; cariSektor.value=c.sektor||'Diğer';
+    cariTelefon.value=c.telefon||''; cariEmail.value=c.email||'';
+    cariVergi.value=c.vergi||''; cariSehir.value=c.sehir||'';
+    cariAdres.value=c.adres||''; cariNot.value=c.not||'';
+    cariAcilis.value=c.acilis||0;
+    document.getElementById('cariLat').value=c.lat||'';
+    document.getElementById('cariLng').value=c.lng||'';
+  } else {
+    ['cariAd','cariTelefon','cariEmail','cariVergi','cariSehir','cariAdres','cariNot'].forEach(i=>document.getElementById(i).value='');
+    document.getElementById('cariLat').value='';
+    document.getElementById('cariLng').value='';
+    cariTip.value='musteri'; cariSektor.value='Pastane / Fırın'; cariAcilis.value=0;
+  }
+  document.getElementById('cariOverlay').classList.add('show');
+}
+function saveCari(){
+  const ad = cariAd.value.trim();
+  if(!ad){ alert('Lütfen cari adı girin.'); return; }
+  const id = cariId.value;
+  const lat = parseFloat(document.getElementById('cariLat').value)||null;
+  const lng = parseFloat(document.getElementById('cariLng').value)||null;
+  const obj = {
+    id: id||uid(),
+    ad, tip: cariTip.value, sektor: cariSektor.value,
+    telefon: cariTelefon.value.trim(), email: cariEmail.value.trim(),
+    vergi: cariVergi.value.trim(), sehir: cariSehir.value.trim(),
+    adres: cariAdres.value.trim(), not: cariNot.value.trim(),
+    acilis: Number(cariAcilis.value)||0, lat, lng
+  };
+  if(id){ const idx=DB.cariler.findIndex(c=>c.id===id); DB.cariler[idx]=obj; }
+  else DB.cariler.push(obj);
+  saveDB(); closeModal('cariOverlay'); renderCariler(); refreshCariSelects();
+  // harita view açıksa yenile
+  if(document.getElementById('view-harita').classList.contains('active')) renderHarita();
+}
+
 /* ================= INIT ================= */
 function init(){
   loadTheme();
-  document.getElementById('todayMeta').textContent = 'Bugün: '+ new Date().toLocaleDateString('tr-TR');
+  loadCustomComboOptions();
+  const tarihStr = 'Bugün: '+ new Date().toLocaleDateString('tr-TR',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+  ['todayMeta','todayMeta2'].forEach(id=>{ const el=document.getElementById(id); if(el) el.innerHTML=tarihStr; });
   refreshCariSelects();
   loadSettingsForm();
   renderOzet();
@@ -1484,8 +1864,14 @@ function init(){
   renderStok();
   renderHareketler();
   renderCalendar();
+  checkStokAlerts();
+  scheduleAllAlarms();
+  if(Notification && Notification.permission==='default'){
+    setTimeout(()=>Notification.requestPermission(), 2000);
+  }
 }
 init();
 </script>
+<div id="versionTag">icevera YMS v1.4</div>
 </body>
 </html>
